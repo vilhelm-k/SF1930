@@ -61,7 +61,7 @@ Korrelationskoefficienten $\rho = 0.19$. Jag anser därmed att det är rimligt a
 
 \clearpage  % Start a new page for figures and tables
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     
     \begin{minipage}{0.45\textwidth}
@@ -80,37 +80,45 @@ Korrelationskoefficienten $\rho = 0.19$. Jag anser därmed att det är rimligt a
     
 \end{figure}
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \begin{tabular}{lrr}
       \toprule
-      \textbf{ID} & \textbf{Gjorda trick} & \textbf{Andel med betyg större än 0.6} \\
+      $i$ & \textbf{Andel lyckade med betyg större än 0.6} & \textbf{Andel misslyckade trick} \\
       \midrule
-      Berger     &      2 &              1.00 \\
-      Decenzo    &      7 &              1.00 \\
-      Eaton      &      5 &              1.00 \\
-      Foy        &      6 &              1.00 \\
-      Fynn       &      6 &              1.00 \\
-      Gustavo    &      8 &              1.00 \\
-      Hoban      &      8 &              1.00 \\
-      Hoefler    &      7 &              1.00 \\
-      Horigome   &      9 &              1.00 \\
-      Huston     &      3 &              1.00 \\
-      Jordan     &      8 &              1.00 \\
-      Joslin     &      9 &              1.00 \\
-      Majerus    &      3 &              0.33 \\
-      McClung    &      1 &              0.00 \\
-      Midler     &      4 &              1.00 \\
-      Milou      &      9 &              1.00 \\
-      Mota       &      3 &              1.00 \\
-      Oliveira   &      5 &              1.00 \\
-      O’neill    &      3 &              1.00 \\
-      Papa       &      7 &              1.00 \\
-      Pudwill    &      3 &              0.33 \\
-      Ribeiro C  &      3 &              1.00 \\
+      Berger    & 1.00 & 0.83 \\
+      Decenzo   & 1.00 & 0.56 \\
+      Eaton     & 1.00 & 0.38 \\
+      Foy       & 1.00 & 0.50 \\
+      Fynn      & 1.00 & 0.50 \\
+      Gustavo   & 1.00 & 0.60 \\
+      Hoban     & 1.00 & 0.60 \\
+      Hoefler   & 1.00 & 0.56 \\
+      Horigome  & 1.00 & 0.44 \\
+      Huston    & 1.00 & 0.62 \\
+      Jordan    & 1.00 & 0.60 \\
+      Joslin    & 1.00 & 0.55 \\
+      Majerus   & 0.33 & 0.62 \\
+      McClung   & 0.00 & 0.75 \\
+      Midler    & 1.00 & 0.67 \\
+      Milou     & 1.00 & 0.55 \\
+      Mota      & 1.00 & 0.75 \\
+      Oliveira  & 1.00 & 0.58 \\
+      O’neill   & 1.00 & 0.75 \\
+      Papa      & 1.00 & 0.56 \\
+      Pudwill   & 0.33 & 0.75 \\
+      Ribeiro C & 1.00 & 0.75 \\
+      Ribeiro G & 1.00 & 0.46 \\
+      Rodriguez & 1.00 & 0.50 \\
+      Santiago  & 0.00 & 0.92 \\
+      Shirai    & 1.00 & 0.60 \\
+      Silvas    & 1.00 & 0.62 \\
+      Suciu     & 1.00 & 0.38 \\
+      Wair      & 1.00 & 0.50 \\
+      Wright    & 1.00 & 0.75 \\
       \bottomrule
     \end{tabular}
-    \caption{Betyg större än 0.6 givet att skateboardåkaren landar tricket}
+    \caption{Betyg större än 0.6 givet att skateboardåkaren landar tricket och andel misslyckade trick.}
     \label{tab:1d}
 \end{table}
 \newpage
@@ -130,7 +138,7 @@ I så fall föreslå en alternativ punktskattning för dessa $\alpha_i, \beta_i$
 Vi använder momentmetoden för att skatta $\alpha_i$ och $\beta_i$ med hjälp av utfall från $Z_i \sim \text{Beta}(\alpha_i, \beta_i)$.
 
 \begin{equation*}
-    E[Z_i] = \frac{\alpha_i}{\alpha_i + \beta_i}, Var[Z_i] = \frac{\alpha_i\beta_i}{(\alpha_i + \beta_i)^2(\alpha_i + \beta_i + 1)} \\
+    \text{E}[Z_i] = \frac{\alpha_i}{\alpha_i + \beta_i}, \text{Var}[Z_i] = \frac{\alpha_i\beta_i}{(\alpha_i + \beta_i)^2(\alpha_i + \beta_i + 1)} \\
 \end{equation*}
 Vi vill behöver alltså lösa följande system för $\alpha, \beta$ för att få momentmetodens skattningar.
 \begin{equation*}
@@ -366,5 +374,174 @@ Däremot är $\mathbf{\Upsilon} \not\independent \mathbf{\Theta} | O_i$ då båd
 \newpage
 \section{En bayesiansk modell med en hierarki.}
 
+% Anta att Θi|Ci = ci, Di = ci ∼ Beta(ci, di) och välj en lämplig simultan apri- orifördelning för [Θi, Ci, Di]T . (Här är Ci och Di hyperparametrarna för den bayesianska hierarkiska modellen som i råttorna exemplet i föreläsning 11.) Motivera ditt val.
+\subsection{Anta att $\Theta_i | C_i = c_i, D_i = d_i \sim Beta(c_i, d_i)$ och välj en lämplig simultan apriorifördelning för $[\Theta_i, C_i, D_i]^T$.
+(Här är $C_i$ och $D_i$ hyperparametrarna för den bayesianska hierarkiska modellen som i råttorna exemplet i föreläsning 11.) Motivera ditt val.}
+
+Eftersom varje tävling nu behandlas separat, och det enda värdet vi är intresserade av att undersöka ytterligare är $\Theta_i$,
+så kan vi introducera en ny variabel $E_i = \sum\limits_{j=1}^4 V_i^{(j)}$ som representerar antalet godkända trick under en tävling.
+Eftersom $X_i^{(j)} \independent X_i^{(k)} | \Theta_i = \theta$ givet $j \neq k$ så har vi att $E_i | \Theta_i = \theta \sim \text{Bin}(4, \theta)$.
+
+Vi kan nu använda oss av samma hierarkiska modell som i råttexemplet från föreläsningarna. Vi utnyttjar att:
+\[
+    f_{C_i, D_i | \mathbf{E_i}}(c_i, d_i | \mathbf{e_i}) = \frac{f_{\mathbf{\Theta}_i, C_i, D_i | \mathbf{E_i}}(\mathbf{\theta}_i, C_i, D_i | \mathbf{e_i})}{f_{\mathbf{\Theta}_i | C_i, D_i, \mathbf{E_i}}(\mathbf{\theta}_i | C_i, D_i, \mathbf{e_i})}
+\]
+Den simultana apriorifördelningen blir:
+\begin{align*}
+    f_{\mathbf{\Theta}_i, C_i, D_i | \mathbf{E_i}}(\theta_i, C_i, D_i | \mathbf{e_i}) &\propto f_{C_i, D_i}(c_i, d_i) f_{\mathbf{\Theta}_i | C_i, D_i}(c_i, d_i) f_{\mathbf{E_i} | \mathbf{\Theta}_i, C_i, D_i}(\mathbf{e_i} | \mathbf{\theta}_i, c_i, d_i) \\
+    &\propto f_{C_i, D_i}(c_i, d_i) \prod\limits_{j=1}^m \frac{\Gamma(c_i + d_i)}{\Gamma(c_i) \Gamma(d_i)} \theta_i^{c_i-1} (1-\theta_i)^{d_i-1} \prod\limits_{j=1}^m \binom{4}{e_{i,j}} \theta_i^{e_{i,j}} (1-\theta_i)^{4-e_{i,j}} \\
+\end{align*}
+Där vi har $m$ olika tävlingar som skateboardåkare $i$ deltar i. Vår uppdateringsregel ger oss att $\Theta_i | E_i = e_i, C_i = c_i, D_i = d_i \sim Beta(c_i + e_i, d_i + 4 - e_i)$.
+Alla olika tävlingar, $j = 1, ..., m$ för skateboardåkare $i$ ger oss:
+\[
+    f_{\mathbf{\Theta}_i | C_i, D_i, \mathbf{E_i}}(\mathbf{\theta} | c_i, d_i, \mathbf{e_i}) = \prod\limits_{j=1}^{m} \frac{\Gamma(c_i + d_i + 4)}{\Gamma(c_i + e_{i,j}) \Gamma(d_i + 4 - e_{i,j})} \theta^{c_i + e_{i,j} - 1} (1-\theta)^{d_i + 4 - e_{i,j} - 1}
+\]
+Sammansatt får vi följande funktion för den simultana apriorifördelningen för hyperparametrarna $C_i, D_i$.
+\[
+    f_{C_i, D_i | \mathbf{E_i}}(c_i, d_i | \mathbf{e_i}) \propto f_{C_i, D_i}(c_i, d_i) \prod\limits_{j=1}^m \frac{\Gamma(c_i + d_i)}{\Gamma(c_i) \Gamma(d_i)} \frac{\Gamma(c_i + e_{i,j}) \Gamma(d_i + 4 - e_{i,j})}{\Gamma(c_i + d_i + 4)}
+\]
+Eftersom $\Theta_i | C_i = c_i, D_i = d_i \sim \text{Beta}(c_i, d_i)$ så kan vi använda samma apriorifördelning för $C_i, D_i$ som tidigare, dvs. den från Exempel 10.8 i föreläsningarna.
+
+\subsection{Generera 5000 slumpmässiga utfall från den simultana aposteriorifördelningen $f_{C_i, D_i | X_i}(c_i, d_i | x_i)$.
+Använd dina simuleringar för att generera 5000 slumpmässiga utfall från den marginella aposteriorifördelningen $\Theta_i | X_i = x_i$.
+Gör diagram med dina utfall för följande aposteriorifördelningar: $f_{\Theta_i | X_i}(\theta_i | x_i)$ och $f_{C_i, D_i | X_i}(c_i, d_i | x_i)$.
+Ge skattningar för aposterioriväntevärdet och aposteriorivariansen för var och en av parametrarna.
+Hur jämför dessa varianser för $\theta_i$ med varianserna för $\theta_i$ beräknade för modellen i Uppgift 3?}
+
+Vi använder samma metod med Metropolisalgoritmen som i Uppgift 3 för att generera 5000 slumpmässiga utfall från den simultana aposteriorifördelningen. Den enda skillanden är att vi använder $\sigma = 0.1$ i hoppfördelningen.
+Startgissningarna ges än en gång av punkskattningar via momentmetoden. Samma metod användes som tidigare användes för Santiago ifall endast en kedja existerar eller om momentmetoden ger $(0,0)$.
+\\\\
+Genom att använda dessa 5000 utfall från $C_i, D_i$ från de olika kedjorna kan vi generera 5000 utfall av $\Theta_i$ från en betafördelning med parametrar $c_i, d_i$.
+\\\\
+Resultaten från min simulering, efter burn-in, kan ses i Fig\ref{fig:4b} och Tab\ref{tab:hierarkisk_params}.
+Från tabellen kan man se att variansen i snitt är ungefär dubbelt så stor som i Uppgift 3.
+Detta är rimligt i och med att vi nu har hyperparametrar med egen varians istället för punktskattnignar för $C_i, D_i$.
+
+% Med hjälp av dina 5000 utfall från del (b) simulera 5000 LCQ tävlingsvinnare och beräkna typvärdet av resultatet. Vilka är de respektive skattade sanno- likheterna för de riktiga vinnarna och ditt typvärde?
+\subsection{Med hjälp av dina 5000 utfall från del (b) simulera 5000 LCQ tävlingsvinnare och beräkna typvärdet av resultatet.
+Vilka är de respektive skattade sannolikheterna för de riktiga vinnarna och ditt typvärde?}
+
+Jag använder dessa 5000 utfall av $\Theta_i$ tillsammans med de frekventistiska punktskattningarna för parametrarna i $Z_i, Y_i$ för att simulera LCQ:ar.
+\\\\
+Typvärdet är Eaton, Hoban, Jordan, Shirai. Denna sker i 1.22\% av fallen. Sannolikheten för de riktiga vinnarna är 0.042\%. 
+Om vi betraktar utfallen individuellt får vi att de vanligaste top 4 medlemmarna är Jordan (50\%), Shirai (46\%), Hoban (43\%) och Eaton (42\%). 
+Gustavo och Decenzo har sannolikheterna 30\% och 34\% att vara top 4.
+
+\begin{table}[h]
+    \centering
+    \caption{Aposteriori stickprovsmedelvärdet och den aposteriori stickprovsorvariansen för $\theta_i, c_i, d_i$}
+    \label{tab:hierarkisk_params}
+    \begin{tabular}{l|rr|rr|rr}
+    \toprule
+    $i$ & $\bar{\theta}$ & $s_{\theta}^2$ & $\bar{c}$ & $s_{c}^2$ & $\bar{d}$ & $s_{d}^2$ \\
+    \midrule
+    Decenzo   & 0.44 & 0.03 & 6.75 & 11.82 & 8.44 & 13.70 \\
+    Eaton     & 0.60 & 0.05 & 9.29 & 23.63 & 6.08 & 15.88 \\
+    Foy       & 0.50 & 0.04 & 7.58 & 13.73 & 7.31 & 12.30 \\
+    Gustavo   & 0.39 & 0.03 & 5.81 & 8.09 & 8.82 & 13.79 \\
+    Hoban     & 0.41 & 0.03 & 6.54 & 9.77 & 9.49 & 17.52 \\
+    Hoefler   & 0.45 & 0.03 & 6.52 & 11.23 & 7.90 & 12.25 \\
+    Jordan    & 0.41 & 0.03 & 6.65 & 8.58 & 9.46 & 17.52 \\
+    Majerus   & 0.38 & 0.04 & 6.03 & 13.44 & 9.41 & 17.93 \\
+    Midler    & 0.32 & 0.03 & 5.03 & 7.64 & 10.38 & 16.93 \\
+    Mota      & 0.27 & 0.03 & 3.93 & 5.38 & 11.28 & 20.58 \\
+    Oliveira  & 0.43 & 0.04 & 6.93 & 14.17 & 9.23 & 17.13 \\
+    O’neill   & 0.26 & 0.03 & 3.83 & 5.996 & 11.08 & 21.86 \\
+    Papa      & 0.44 & 0.03 & 6.60 & 8.92 & 8.39 & 12.91 \\
+    Ribeiro C & 0.25 & 0.03 & 3.87 & 4.83 & 11.74 & 22.32 \\
+    Santiago  & 0.10 & 0.01 & 1.51 & 2.13 & 13.75 & 33.70 \\
+    Shirai    & 0.40 & 0.03 & 6.67 & 8.70 & 9.80 & 15.01 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{Figures/4b.png}
+    \caption{Aposterori fördelningar för $\theta_i, c_i, d_i$}
+    \label{fig:4b}
+\end{figure}
+
+\newpage
+\section{Diskussion.}
+
+\subsection{Hur jämför resultaten (skateboardåkarna i typvärdena) av de olika modellerna? Vilka skateboardåkare är korrekt förutspådda och vilka inte är det? Ge några möjliga förklaringar till skillnaderna mellan de olika modellernas förutsägelser. Vilken modell föredrar du och varför?}
+Intressant nog så har jag fått exakt samma typvärde för alla modeller. Detta är dock inte helt orimligt med tanke på att alla modeller bygger på samma data.
+En intressant skillnad i den hierarkiska modellen är att den tidigare storfavoriten, Eaton, nu 'bara' ligger på fjärde plats som individ.
+En rimlig förklaring till detta är att den hierarkiska modellen har en större varians i $\theta_i$ än den andra modellerna.
+Som syns i Tab\ref{tab:freq_params} så är Eatons kankse största styrka att han har högst $\theta_i$ av alla skateboardåkare.
+Detta håller i alla modeller, men en hypotes skulle vara att den stora variansen i den hierarkiska modellen gör att någon av de många andra åkare lyckas utprestera honom oftare i tävlingarna.
+\\\\
+Jag föredrar den vanliga Bayesianska modellen då denna använder aposteriorifördelningar för alla parametrar istället för att endast göra detta för $\Theta_i$.
+En bayesiansk metod känns mest lämplig eftersom vi har så få tävlingar att dra slutsatser ifrån, vilket gör den frekventistiska metoden mindre lämplig.
+En intressant vidareutveckling hade varit att använda en hierarkisk modell för alla parametrar tillsammans med någon slags 'dagsforms'-hyperparameter då jag anser att det finns en viss nytta i att betrakta olika tävlingar separat.
+
+\subsection{Hur jämför dina skattningar för $\theta_i$ i Uppgift 1 och dina skattade väntevärden och varianser för $\theta_i$ i Uppgift 3 och 4? Vad är det förväntade betyget för ett trick för varje skateboardåkare givet att tricket har lyckats landa? Vad är det förväntade runbetyget? Med tanke på skateboardåkare som förutspås vinna enligt de olika modellerna, ger dessa statistikor några insikter om framgångsrika strategier för att vinna? (Till exempel, fungerar det att fokusera på ett bra runbetyg framför bra trickbetyg? Finns det exempel där denna strategi fungerar? Är det bra att ha bättre trickbetyg med stor varians eller lite sämre trickbetyg med mindre varians? osv.)}
+Skattningarna för $\theta_i$ i Uppgift 1 och Uppgift 3 är väldigt lika, vilket är rimligt då de använder samma data.
+Dock så har modellen i uppgift 4 mycket högre varians än den i Uppgift 3 (och den frekventistiska modellen har 0 varians).
+\\\\
+Både $Z_i, Y_i$ är betafördelade så vi använder $E[X] = \frac{\alpha}{\alpha + \beta}$ för att beräkna det förväntade betyget för ett lyckat trick eller run.
+Resultaten kan ses i Tab\ref{tab:exp_scores}. De som oftast är med i topp fyran för alla våra fördelningar är Jordan, Shirai, Hoban och Eaton.
+Nästan alla åkare har högre snittbetyg för ett lyckat trick än för en run och våra vinnare står inte märkvärt ut, bortsätt från Shirai som har betydligt högre väntevärde för lyckade trick än run.
+Detta känns dock som en rimlig strategi då två trick räknas in i poängen medans bara en run räknas in. Fler poäng kan alltså samlas från runs.
+Att ha högre varians bör också belönas då endast de bästa resultaten räknas för både tricks och runs.
+Det som datan visar tydligast däremot är dock att det viktigaste är att ha höga väntevärden för lyckade trick och runs, vilket är rimligt.
+
+\begin{table}[h]
+    \centering
+    \caption{Väntevärden för lyckade trick, runs och väntevärde och varians för totalbetyg.}
+    \label{tab:exp_scores}
+    \begin{tabular}{lcccccccc}
+        \toprule
+        i & $E[Z_{freq}]$ & $E[Z_{bayes}]$ & $E[Y_{freq}]$ & $E[Y_{bayes}]$ & $E[O_{bayes}]$ & $E[O_{hier}]$ & $Var[O_{bayes}]$ & $Var[O_{hier}]$ \\
+        \midrule
+        Decenzo & 0.83 & 0.81 & 0.60 & 0.60 & 1.84 & 1.88 & 0.44 & 0.43 \\
+        Eaton & 0.79 & 0.77 & 0.74 & 0.72 & 2.12 & 2.16 & 0.31 & 0.20 \\
+        Foy & 0.85 & 0.82 & 0.46 & 0.45 & 1.82 & 1.90 & 0.41 & 0.38 \\
+        Gustavo & 0.80 & 0.78 & 0.59 & 0.57 & 1.75 & 1.79 & 0.44 & 0.45 \\
+        Hoban & 0.88 & 0.85 & 0.63 & 0.64 & 1.89 & 1.86 & 0.47 & 0.50 \\
+        Hoefler & 0.78 & 0.76 & 0.65 & 0.59 & 1.80 & 1.91 & 0.41 & 0.38 \\
+        Jordan & 0.86 & 0.84 & 0.75 & 0.73 & 1.96 & 2.02 & 0.46 & 0.48 \\
+        Majerus & 0.52 & 0.53 & 0.42 & 0.40 & 1.15 & 1.19 & 0.36 & 0.30 \\
+        Midler & 0.81 & 0.78 & 0.61 & 0.52 & 1.53 & 1.65 & 0.51 & 0.50 \\
+        Mota & 0.78 & 0.76 & 0.47 & 0.48 & 1.22 & 1.31 & 0.42 & 0.45 \\
+        Oliveira & 0.79 & 0.77 & 0.57 & 0.57 & 1.72 & 1.76 & 0.43 & 0.40 \\
+        O’neill & 0.84 & 0.81 & 0.45 & 0.44 & 1.30 & 1.36 & 0.52 & 0.56 \\
+        Papa & 0.78 & 0.76 & 0.51 & 0.51 & 1.69 & 1.75 & 0.41 & 0.40 \\
+        Ribeiro C & 0.78 & 0.75 & 0.54 & 0.52 & 1.31 & 1.42 & 0.43 & 0.44 \\
+        Santiago & 0.47 & 0.49 & 0.38 & 0.38 & 0.65 & 0.66 & 0.16 & 0.13 \\
+        Shirai & 0.90 & 0.87 & 0.63 & 0.59 & 1.87 & 1.99 & 0.51 & 0.53 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Skatta väntevärdet och standardavvikelsen för varje skateboardåkares totalbetyg för modellerna i uppgift 3 och 4. Stödjer denna statistik dina förut- sägelser? Enligt denna statistik, vad måste hända för att resultatet ska bli de riktiga vinnarna?}
+Resultatet från detta syns i Tab\ref{tab:exp_scores}. En intressant är att både den vanliga bayesianska modellen och den hierarkiska modellen har ungefär samma varians för sina totalbetyg.
+Den ytterligare variansen i $\Theta_i$ i den hierarkiska modellen verkar alltså kompenseras av att den bayesianska modellen har mer varians i alla andra parametrar.
+\\\\
+Här ser vi dock att det finns belägg för att högre varians med lägre medelvärde kan vara en bra 'strategi'.
+Jordan går vidare till finalen oftast i den hierarkiska modellen trots att han har lägre väntevärde än Eaton, detta rimligtvis på grund av hans högre varians.
+Enligt denna statistik så måste Decenzo och Gustavo ha en väldigt bra dag samtidigt som Jordan och Shirai måste ha en dålig dag för att våra vinnare ska bli 'korrekta'.
+Med det sagt så har både Decenzo och Gustavo $>30\%$ sannolikhet att vara topp 4 i båda modellerna så det är knappast som om ett mirakel har skett.
+
+\subsection{I alla modellerna antog vi att skateboardåkarens prestationer är oberoende. Till exempel antog vi att alla $V_i$ är oberoende. Verkar detta som ett rimligt antagande? Motivera ditt svar.}
+Det här är en mycket intressant fråga. Från åkarens perspektiv så är det mycket rimligt att deras strategi skulle kunna ändras beroende på hur deras tidigare trick har gått.
+En riskminimerande strategi hade varit att göra enklare trick med högre sannolikhet att lyckas för sina första trick, för att sedan försöka höja sig.
+Det finns faktiskt belägg för detta i datan då 62\% av trick 1 är lyckade, jämfört med 22\% av trick 4.
+\\\\
+Ett annat exempel hade varit om en åkare exempelvis hade gjort tre trick och bara landat ett så bör strategin vara annorlunda än om åkaren redan har landat sina två trick.
+I det första fallet bör risk försöka minimieras så att åkaren i alla fall har två trick, medans i det andra fallet finns det ingen risk i att misslyckas och åkaren kan därmed ta en större risk. 
+Skateboardåkarna kanske också blir uppvärmda och därmed har större sannolikhet att landa sina senare trick. 
+Implicit i båda dessa är att jag antytt att trick som ger högre poäng också är svårare att landa, något som modellen ej tar hänsyn till.
+\\\\
+De implementerade modellerna är alltså relativt simplistiska med starka antaganden som kanske visar sig vara sanna. Detta tyder på att det finns utvecklingspotential för modellen.
+
+\subsection{I alla modeller struntade vi i ordningen som skateboardåkarna turades om. Verkar detta vara en rimlig sak att göra? Varför eller varför inte?}
+Även ordning kan tänkas ha relevans för en skateboardåkare. Om en åkare exempelvis ligger två i tävlingen och ska göra sitt trick efter ledaren så vet åkaren exakt vilket poäng hen behöver för att vinna.
+Detta kan tänkas vara en fördel, men det skulle också kunna bidra till ytterligare stress. I exempelvis fotboll har laget som får börja straffsparksläggningen en fördel, de vinner ungefär 60\% av gångerna.
+\\\\
+Detta känns dock inte som en riktigt lika rimlig faktor att ta hänsyn till som det som nämndes i den tidigare deluppgiften.
+Eftersom det är så många deltagare i LCQ:en så bör effekten av att vara först eller sist i ordningen vara svagare än i exempelvis fotboll där det endast finns två lag.
+Dessutom är detta någonting som bör jämnas ut över många simulationer eftersom det är slumpmässigt vem som börjar först (ingenting är i alla fall givet i uppgiften).
 
 \end{document}

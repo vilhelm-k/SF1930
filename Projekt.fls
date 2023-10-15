@@ -1024,11 +1024,17 @@ INPUT ./Figures/3c.png
 INPUT Figures/3c.png
 INPUT ./Figures/3c.png
 INPUT ./Figures/3c.png
+INPUT ./Figures/4b.png
+INPUT ./Figures/4b.png
+INPUT Figures/4b.png
+INPUT ./Figures/4b.png
+INPUT ./Figures/4b.png
 INPUT Projekt.aux
 INPUT ./Projekt.out
 INPUT ./Projekt.out
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
